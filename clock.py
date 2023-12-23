@@ -1,20 +1,26 @@
 from tkinter import *
 from tkinter.ttk import *
-
 from time import strftime
 
 root = Tk()
-root.title("clock")
+root.title("Clock")
 
 def time():
-    string  = strftime("%H:%M:%S %p")
-    label.config(text = string )
-    label.after(1000,time)
+    # Get the current time in the specified format
+    string = strftime("%H:%M:%S %p")
 
-label = Label(root, font = ("ds-digital",80), background = "black" , foreground ="cyan")
-label.pack(anchor = 'center')
+    # Update the label text
+    label.config(text=string)
+
+    # Call the time function again after 1000 milliseconds (1 second)
+    label.after(1000, time)
+
+# Create a label widget for displaying the time
+label = Label(root, font=("ds-digital", 80), background="black", foreground="cyan")
+label.pack(anchor='center')
+
+# Initial call to the time function to start the clock
 time()
 
+# Start the Tkinter event loop
 mainloop()
-
-
